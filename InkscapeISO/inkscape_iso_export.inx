@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Export ISO group objects</name>
+    <id>org.inkscape.iso.export</id>
+    <param name="pages" type="notebook">
+
+        <page name="export" gui-text="Export settings">
+            <param type="path" mode="folder" name="export_path" gui-text="Export path of the ISO sprites:" gui-description="The directory to export the ISO sprites" />
+            <param type="optiongroup" name="search_scope" gui-text="Search scope:" gui-description="Search scope for ISO sprites to export.">
+                <option value="auto">Automatic (everything if no selection)</option>
+                <option value="selection">Selection</option>
+                <option value="everything">Everything</option>
+            </param>
+            <param type="float" name="export_dpi" min="1" max="9999" precision="2"  gui-text="Export png's dpi:">96</param>
+        </page>
+
+        <page name="world" gui-text="World settings">
+            <param type="optiongroup" name="world_center" gui-text="The center of the world" gui-description="The center of the isometric world, where all sprites are relative to.">
+                <option value="page">Page center</option>
+                <option value="custom">Custom:</option>
+            </param>
+            <param type="int" name="custom_center_x" default="0" min="-99999999999" max="9999999999999999" gui-text="Custom center x:" gui-description="X coordinate of the world's center in pixels relative to the page top-left corner">0</param>
+            <param type="int" name="custom_center_y" default="0" min="-99999999999" max="9999999999999999" gui-text="Custom center y:" gui-description="Y coordinate of the world's center in pixels relative to the page top-left corner">0</param>
+                
+            <separator />
+            
+            <param type="int" name="tile_width" default="256" min="-99999999999" max="9999999999999999" gui-text="Width of an isometric tile:">256</param>
+            <param type="int" name="tile_height" default="128" min="-99999999999" max="9999999999999999" gui-text="Height of an isometric tile">128</param>
+            <param type="int" name="vertical_step" default="128" min="-99999999999" max="9999999999999999" gui-text="Vertical step:" gui-description="Vertical step in pixels: the distance an object must take (up or down) to travel 1 unit in the z-axis.">128</param>
+        
+            <separator />
+
+            <param type="float" name="default_z" gui-text="Default z location:" gui-description="Default z location for sprites with undefined z" >0</param>
+        </page>
+
+    </param>
+    <effect needs-live-preview="false">
+        <effects-menu>
+            <submenu name="Isometric"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">export_iso_sprite.py</command>
+    </script>
+</inkscape-extension>

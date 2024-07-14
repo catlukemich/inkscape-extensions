@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>Mark group as ISO sprite</name>
+    <id>org.inkscape.iso.origin</id>
+    <param name="origin_location" type="optiongroup" gui-text="Origin location" gui-description="Where to put the origin at (it can be moved later on)">
+        <option value="1">Top left</option>
+        <option value="2">Top center</option>
+        <option value="3">Top right</option>
+
+        <option value="4">Middle left</option>
+        <option value="5">Middle center</option>
+        <option value="6">Middle right</option>
+        
+        <option value="7">Bottom left</option>
+        <option value="8">Bottom center</option>
+        <option value="9">Bottom right</option>
+    </param>
+
+    <param name="show" type="bool" gui-text="Make origin visible:">false</param>
+
+    <param name="z_value" type="float" gui-text="Z-axis value:" min="-9999999999" max="9999999999">0.0</param>
+
+    <effect needs-live-preview="false">
+        <effects-menu>
+            <submenu name="Isometric"/>
+        </effects-menu>
+    </effect>
+    <script>
+        <command location="inx" interpreter="python">mark_iso_sprite.py</command>
+    </script>
+</inkscape-extension>
